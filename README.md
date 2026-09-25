@@ -1,120 +1,59 @@
-# Personal Portfolio
+Jules NIZEYIMANA | Professional Portfolio
 
-A personal portfolio website developed to present information about **Jules NIZEYIMANA**, including his professional profile, education, certifications, projects, areas of expertise, and contact information. The portfolio is designed as a clean, responsive, and professional website using HTML5 and CSS3. It also includes social media and communication links and a print-friendly layout for presenting the portfolio as a professional document.
+This is a professional personal portfolio website showcasing my profile, skills, education, certifications, professional experience, accomplishments, and contact information.
+The website is built using HTML5 and CSS3 and is designed to be responsive, mobile-friendly, and print-friendly.
 
-## Features
+Features
+=========
+About Me
 
-* **About Me Section**
+This section provides a brief professional introduction and presents my background in ICT, digital skills, and community development. It highlights my professional interests and experience in digital inclusion, community connectivity, online safety, Internet governance, and technical training.
+Projects & Experience
+This section highlights selected projects, professional experiences, and initiatives that I have contributed to throughout my professional journey.
 
-  * Provides a brief professional introduction.
-  * Presents my background in ICT, digital skills, and community development.
-  * Highlights my work in digital inclusion, community connectivity, online safety, Internet governance, and technical training.
+Education
 
-* **Professional Roles**
+This section presents my academic background and educational qualifications in Information Technology and related fields.
+Certifications
+This section presents my professional certifications, training achievements, and other relevant credentials.
+Let's Connect
+This section provides links to my professional and communication platforms, making it easy to connect with me through LinkedIn and X.
 
-  * Managing Director | RGT
-  * Vice Chair & COO | ISOC Rwanda
+Responsive Design
 
-* **Areas of Expertise**
+The website is designed to adapt to different screen sizes, including desktop, tablet, and mobile devices.
 
-  * Digital Literacy
-  * Community Networks
-  * Online Safety
-  * Internet Governance
-  * Technical Training
-  * Digital Inclusion
+Professional Visual Design
 
-* **Projects & Experience**
+The website uses structured sections, cards, colors, spacing, borders, and shadows to create a clean and professional visual presentation.
+Print-Friendly Design
+The website includes print-specific CSS settings, allowing the portfolio to be printed or saved as a PDF.
 
-  * Expert Trainer
-  * Digital Literacy Training for Refugees
-  * Community Network & WiFi Entrepreneurship
-  * Kibungo Internet Access Centre
-  * Digital Libraries for Schools
-  * Community Digital Inclusion
+How to Run This Project
+This is a static website and does not require a backend server or database.
+You can run it locally by cloning the repository and opening the index.html file in a modern web browser. The website can also be deployed online using GitHub Pages.
 
-* **Education Section**
-
-  * BTech in Information Technology
-  * Advanced Diploma in ICT
-  * A' Level Certificate in MPC
-
-* **Certifications Section**
-
-  * Internet Society Technical Trainer – 2025
-  * Other professional certificates and training achievements
-
-* **Let's Connect Section**
-
-  * LinkedIn
-  * X
-  * Gmail
-  * WhatsApp
-
-* **Responsive Design**
-
-  * The website adapts to desktop, tablet, and mobile screens.
-
-* **Professional Visual Design**
-
-  * Uses cards, structured sections, colors, borders, spacing, and shadows.
-
-* **Print-Friendly Design**
-
-  * The CSS includes print settings for printing or saving the portfolio as a PDF.
-
-## How to Run This Project
-
-This project is a static website and can be run directly in a modern web browser.
-
-The project can be accessed locally by cloning the GitHub repository and opening the `index.html` file. It can also be deployed online using GitHub Pages.
-
-### Prerequisites
+Prerequisites
 
 Before running the project, you need:
-
-1. A computer running Windows, macOS, or Linux.
-2. A modern web browser such as Google Chrome, Mozilla Firefox, Microsoft Edge, or Safari.
-3. Git installed if you want to clone the repository.
-4. An Internet connection for external resources such as Font Awesome icons.
-
+•	A computer or smartphone.
+•	A modern web browser such as Google Chrome, Mozilla Firefox, Microsoft Edge, or Safari.
+•	Git: Required if you want to clone the repository. Windows users need to install Git, while macOS and most Linux/Unix systems include Git or provide it through their package manager.
+•	An Internet connection for external resources.
 No database or backend server is required.
 
-### Installation
+Installation
 
-#### 1. Clone the repository
-
+1. Clone the Repository
 Open a terminal or command prompt and run:
-
-```bash
-git clone https://github.com/YOUR-GITHUB-USERNAME/julesnizeyimana.git
-```
-
-#### 2. Navigate to the project directory
-
-```bash
+git clone https://github.com/julesni/julesnizeyimana.git
+2. Navigate to the Project Directory
 cd julesnizeyimana
-```
+3. Open the Project
+Open the index.html file in a modern web browser.
 
-#### 3. Open the project
+Project Structure
 
-Open the `index.html` file in a web browser.
-
-Alternatively, open the project in **Visual Studio Code** and use the **Live Server** extension.
-
-#### 4. View the website
-
-If using Live Server, the portfolio will normally be available at:
-
-```text
-http://127.0.0.1:5500/
-```
-
-The exact address may vary depending on the development environment.
-
-## Project Structure
-
-```text
 julesnizeyimana/
 │
 ├── index.html
@@ -126,78 +65,40 @@ julesnizeyimana/
 │
 └── images/
     └── passport.jpg
-```
 
-### File Description
+Project File Description
 
-| File/Folder           | Purpose                                                                    |
-| --------------------- | -------------------------------------------------------------------------- |
-| `index.html`          | Main HTML file containing the portfolio structure and content              |
-| `Styles/`             | Folder containing the website stylesheet                                   |
-| `Styles/main.css`     | CSS file responsible for layout, colors, responsiveness, and print styling |
-| `images/`             | Folder containing images used by the website                               |
-| `images/passport.jpg` | Profile picture displayed in the About section                             |
-| `README.md`           | Project documentation                                                      |
-| `LICENSE.txt`         | Project license and usage conditions                                       |
+File/Folder	Purpose/description
+index.html	Main HTML file containing the portfolio structure and content
+Styles/	Folder containing the website stylesheet
+Styles/main.css	CSS file responsible for layout, visual design, responsiveness, and print styling
+images/	Folder containing images used by the website
+images/passport.jpg	Profile picture displayed in the About section
+README.md	 Project documentation
+LICENSE.txt	 Project license and usage conditions
 
-## Technologies Used
+Technologies Used
 
-* **HTML5** – Used to create the structure and content of the portfolio.
-* **CSS3** – Used to create the visual design, layout, responsive behavior, and print version.
-* **Font Awesome** – Used for LinkedIn, X, email, and WhatsApp icons.
-* **Visual Studio Code** – Used as the development environment.
-* **Git** – Used for version control.
-* **GitHub** – Used for remote repository hosting.
+•	HTML5: Used to create the structure and content of the portfolio.
+•	CSS3: Used for the visual design, layout, responsive behavior, and print styling.
+•	Font Awesome: Used for social media and communication icons.
+•	Visual Studio Code: Used as the development environment.
+•	Git: Used for version control.
+•	GitHub: Used for repository hosting and project deployment.
 
-## Development Process
+License
 
-The portfolio was developed by first creating the basic HTML structure and then applying CSS styling to improve its appearance and usability.
+This project is created for educational and professional portfolio publication purposes. For the complete terms and conditions, see the LICENSE.txt file.
 
-The development process included:
+Contributor
 
-1. Creating the basic HTML structure.
-2. Creating separate sections for About Me, Projects, Education, Certifications, and Contact.
-3. Creating a two-column layout for the About section and profile picture.
-4. Creating a three-column layout for professional projects.
-5. Creating a three-column layout for education.
-6. Creating a two-column layout for certifications.
-7. Adding professional colors, cards, spacing, borders, and shadows.
-8. Adding social media and communication icons.
-9. Adding responsive CSS for different screen sizes.
-10. Adding print-specific CSS for a professional printable version.
-11. Organizing the project files into separate folders.
-12. Using Git and GitHub for version control and project hosting.
+Jules NIZEYIMANA: Project Designer, Developer, and 
 
-## License
+Project Links
 
-This project is created primarily for **educational and professional portfolio purposes**.
+GitHub Repository:
+https://github.com/julesni/julesnizeyimana
+Live Portfolio:
+https://julesni.github.io/julesnizeyimana/
+© 2026 Jules NIZEYIMANA – Personal Portfolio
 
-The source code may be used as a learning reference. However, personal information, photographs, professional content, and other materials belonging to Jules NIZEYIMANA should not be copied, reproduced, or redistributed without permission.
-
-For the complete terms and conditions, see the project's license file:
-
-[LICENSE.txt](LICENSE.txt)
-
-## Contributors
-
-* **Jules NIZEYIMANA** – Project Designer, Developer, and Content Contributor
-
-## Acknowledgements
-
-Special appreciation to the instructors and learning resources that supported the development of this project.
-
-The project also makes use of **Font Awesome** for social media and communication icons.
-
-## Project Link
-
-**GitHub Repository:**
-
-https://github.com/YOUR-GITHUB-USERNAME/julesnizeyimana
-
-**Live Project:**
-
-https://YOUR-GITHUB-USERNAME.github.io/julesnizeyimana/
-
----
-
-**© 2026 Jules NIZEYIMANA – Personal Portfolio**
