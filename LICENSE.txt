@@ -1,0 +1,13 @@
+LICENSE
+
+This work is produced mainly for the purpose of education and portfolio publication.
+
+The source code can be reviewed and used as a reference for learning. Nonetheless, any personal information, pictures, professional material, portfolio, and other original works owned by Jules NIZEYIMANA cannot be copied, reproduced, modified, published, distributed, or redistributed without prior consent.
+
+Prior permission is not granted to use this work and any personal or professional material that comes along with it for any commercial purposes.
+
+The third-party libraries, frameworks, fonts, images/icons, or other files used in this work will still fall under their individual license agreements.
+
+For permission to use, reproduce, distribute, or otherwise reuse the materials governed by this license, please contact the copyright owner.
+
+Copyright © 2026 Jules NIZEYIMANA. All rights reserved.
