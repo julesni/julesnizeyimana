@@ -92,7 +92,13 @@ This project is created for educational and professional portfolio publication p
 
 Contributor
 
-Jules NIZEYIMANA: Project Designer, Developer, and 
+- Jules NIZEYIMANA: Project Designer, Developer, and onwer. 
+
+Colaborator 
+Name:Teckla GIRAMATA, 
+Githhub_Repository:https://github.com/Teckla23/Portfolio.git
+Username: Teckla23
+Role: Assistant Developer
 
 Project Links
 
