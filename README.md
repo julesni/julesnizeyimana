@@ -94,13 +94,16 @@ Contributor
 
 - Jules NIZEYIMANA: Project Designer, Developer, and onwer. 
 
-Colaborator 
+**Collaborator** 
 
 Name:Teckla GIRAMATA, 
 
-Githhub_Repository:https://github.com/Teckla23/Portfolio.git
+Githhub_Repository:
+https://github.com/Teckla23/Portfolio.git
+
 Username: Teckla23
-Role: Assistant Developer, Contact section
+
+Role: Assistant Developer (Contact section)
 
 Project Links
 
