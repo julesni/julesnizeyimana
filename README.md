@@ -98,7 +98,7 @@ Colaborator
 Name:Teckla GIRAMATA, 
 Githhub_Repository:https://github.com/Teckla23/Portfolio.git
 Username: Teckla23
-Role: Assistant Developer
+Role: Assistant Developer, Contact section
 
 Project Links
 
