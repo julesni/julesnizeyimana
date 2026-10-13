@@ -98,7 +98,7 @@ Contributor
 
 Name:Teckla GIRAMATA, 
 
-Githhub_Repository:
+Github_Repository:
 https://github.com/Teckla23/Portfolio.git
 
 Username: Teckla23
