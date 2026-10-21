@@ -44,7 +44,7 @@
       <span class="text-zinc-900 dark:text-white">Ju</span><span class="text-accent">les</span>
     </a>
 
-    <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
+    <!-- <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
       <li><a href="#about"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
       <li><a href="#work"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Projects</a></li>
       <li><a href="#services" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Area of Expertise</a></li>
@@ -53,12 +53,12 @@
        <!-- 
       <li><a href="#reviews" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='reviews'?'on !text-zinc-900 dark:!text-white':''">Reviews</a></li>
       -->
-      <li><a href="#blog"    class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='blog'?'on !text-zinc-900 dark:!text-white':''">Blog</a></li>
+      <!-- <li><a href="#blog"    class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='blog'?'on !text-zinc-900 dark:!text-white':''">Blog</a></li>
    
       <li><a href="#contact" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li>
-    </ul>
+    </ul> -->
 
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-3"> 
       <!-- dark toggle -->
       <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
         <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
@@ -76,103 +76,171 @@
     </div>
   </nav>
 
-  <!-- mobile menu -->
-  <div x-show="mm" x-cloak
-    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
-    class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
-    <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
-      <li><a href="#services" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Services</a></li>
-      <li><a href="#work"     @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Work</a></li>
-      <li><a href="#about"   @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
-      <li><a href="#reviews" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Reviews</a></li>
-      <li><a href="#blog"    @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Blog</a></li>
-      <li><a href="#contact" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a></li>
-      <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
-        <a href="#contact" @click="mm=false" class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
-      </li>
-    </ul>
-  </div>
 </header>
 
 <main>
+
 
 
 <!-- ═══ CONTACT ═══ -->
 <section id="contact" class="py-24">
   <div class="max-w-6xl mx-auto px-6">
     <div class="bg-zinc-900 dark:bg-zinc-800 rounded-3xl p-10 md:p-16 relative overflow-hidden">
+
+      <!-- Background decorations -->
       <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
       <div class="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
 
       <div class="relative z-10 grid md:grid-cols-2 gap-12 items-start">
 
+        <!-- LEFT COLUMN: Contact information -->
         <div>
-          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Get in touch</p>
-          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-5">Let's work<br>together</h2>
-          <p class="reveal d2 text-zinc-400 leading-relaxed mb-8">I'm open to Digital Inclusion and Community Development initiatives.</p>
+          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
+            Get in touch
+          </p>
+
+          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-5">
+            Let's work<br>together
+          </h2>
+
+          <p class="reveal d2 text-zinc-400 leading-relaxed mb-8">
+            I'm open to Digital Inclusion and Community Development initiatives.
+          </p>
 
           <div class="reveal d3 flex flex-col gap-4">
-            <!-- <a href="mailto:hello@eliott.dev" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/jules-nizeyimana-6533a712a/"
+               rel="noopener noreferrer"
+               target="_blank"
+               class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+
               <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
               </span>
-              <span class="text-sm">hello@jules.com</span>
+
+              <span class="text-sm">LinkedIn Profile</span>
             </a>
-          -->
-            <a href="https://www.linkedin.com/in/jules-nizeyimana-6533a712a/" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+
+            <!-- X / Twitter -->
+            <a href="https://x.com/Julesni57"
+               rel="noopener noreferrer"
+               target="_blank"
+               class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+
               <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.634 7.584H.478l8.6-9.83L0 1.153h7.594l5.243 6.932zm-1.291 19.49h2.039L6.486 3.246H4.298z"/>
+                </svg>
               </span>
-              <span class="text-sm">Linkedin Profile</span>
+
+              <span class="text-sm">Twitter/X Handle</span>
             </a>
-            <a href="https://x.com/Julesni57" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"> 
-              
-              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0"> 
-                <!-- X (Twitter) Icon --> 
-                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> 
-                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.634 7.584H.478l8.6-9.83L0 1.153h7.594l5.243 6.932zm-1.291 19.49h2.039L6.486 3.246H4.298z"/> </svg> 
-            </span>
-            <span class="text-sm">Twitter/X handle</span>
+
           </div>
         </div>
 
+        <!-- RIGHT COLUMN: Disabled contact form -->
         <div class="reveal d2">
+
           <form action="#" method="POST" novalidate>
+
             <div class="flex flex-col gap-4">
+
+              <!-- Name and Email -->
               <div class="grid sm:grid-cols-2 gap-4">
+
                 <div>
-                  <label for="fname" class="block text-xs font-medium text-zinc-400 mb-1.5">Name <span aria-hidden="true">*</span></label>
-                  <input type="text" id="fname" name="name" placeholder="Jane Smith" required autocomplete="name"
-                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                  <label for="fname" class="block text-xs font-medium text-zinc-400 mb-1.5">
+                    Name <span aria-hidden="true">*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="fname"
+                    name="name"
+                    placeholder="Jane Smith"
+                    autocomplete="name"
+                    disabled
+                    aria-disabled="true"
+                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 opacity-60 cursor-not-allowed">
                 </div>
+
                 <div>
-                  <label for="femail" class="block text-xs font-medium text-zinc-400 mb-1.5">Email <span aria-hidden="true">*</span></label>
-                  <input type="email" id="femail" name="email" placeholder="jane@company.com" required autocomplete="email"
-                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                  <label for="femail" class="block text-xs font-medium text-zinc-400 mb-1.5">
+                    Email <span aria-hidden="true">*</span>
+                  </label>
+
+                  <input
+                    type="email"
+                    id="femail"
+                    name="email"
+                    placeholder="jane@company.com"
+                    autocomplete="email"
+                    disabled
+                    aria-disabled="true"
+                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 opacity-60 cursor-not-allowed">
                 </div>
+
               </div>
+
+              <!-- Subject -->
               <div>
-                <label for="fsubject" class="block text-xs font-medium text-zinc-400 mb-1.5">Subject</label>
-                <input type="text" id="fsubject" name="subject" placeholder="Project inquiry"
-                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                <label for="fsubject" class="block text-xs font-medium text-zinc-400 mb-1.5">
+                  Subject
+                </label>
+
+                <input
+                  type="text"
+                  id="fsubject"
+                  name="subject"
+                  placeholder="Project inquiry"
+                  disabled
+                  aria-disabled="true"
+                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 opacity-60 cursor-not-allowed">
               </div>
+
+              <!-- Message -->
               <div>
-                <label for="fmessage" class="block text-xs font-medium text-zinc-400 mb-1.5">Message <span aria-hidden="true">*</span></label>
-                <textarea id="fmessage" name="message" rows="4" placeholder="Tell me about your project..." required
-                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
+                <label for="fmessage" class="block text-xs font-medium text-zinc-400 mb-1.5">
+                  Message <span aria-hidden="true">*</span>
+                </label>
+
+                <textarea
+                  id="fmessage"
+                  name="message"
+                  rows="4"
+                  placeholder="Tell me about your project..."
+                  disabled
+                  aria-disabled="true"
+                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 resize-none opacity-60 cursor-not-allowed"></textarea>
               </div>
-              <button type="submit" class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
+
+              <!-- Disabled submit button -->
+              <button
+                type="submit"
+                disabled
+                aria-disabled="true"
+                class="w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl opacity-50 cursor-not-allowed">
                 Send message →
               </button>
+
             </div>
           </form>
+
+          <p class="text-xs text-zinc-500 mt-3">
+            The contact form is currently unavailable. Please connect through LinkedIn or X.
+          </p>
+
         </div>
 
       </div>
     </div>
   </div>
 </section>
+
 
 </main>
 
