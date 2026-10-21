@@ -1,21 +1,35 @@
-<!DOCTYPE html>
 
-<html lang="en" x-data="app()" x-cloak :class="{ 'dark': dark }" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en"
+      x-data="app()"
+      x-cloak
+      :class="{ 'dark': dark }"
+      class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Jules Nizeyimana is a digital skills and community development practitioner focused on technical training, digital inclusion, community connectivity, online safety, and Internet governance.">
-  <meta name="keywords" content="Jules Nizeyimana, digital inclusion, community networks, technical training, Internet governance, online safety, Rwanda">
+  <meta name="description" content="Jules Nizeyimana | Digital skills, community development, connectivity, online safety, and Internet governance.">
   <meta name="author" content="Jules Nizeyimana">
-
   <meta property="og:title" content="Jules Nizeyimana | Professional Portfolio">
-  <meta property="og:description" content="Explore Jules Nizeyimana's work in digital inclusion, technical training, community connectivity, online safety, and Internet governance.">
+  <meta property="og:description" content="Digital skills, community development, connectivity, online safety, and Internet governance.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://julesni.github.io/">
 
   <title>Jules Nizeyimana | Professional Portfolio</title>
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+        rel="stylesheet">
+
+  <!-- Existing stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -36,945 +50,489 @@
     };
   </script>
 
+  <!-- Alpine.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 5rem;
-    }
-
-    html, body {
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'PT Sans', sans-serif;
-    }
-
-    body {
-      transition: background-color .3s, color .3s;
-    }
-
-    /* Noise overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: .35;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
-    }
-
-    /* Keep page content above the noise overlay */
-    body > * {
-      position: relative;
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #FF6B2B;
-      border-radius: 99px;
-    }
-
-    /* Reveal on scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px);
-      transition:
-        opacity .6s cubic-bezier(.4, 0, .2, 1),
-        transform .6s cubic-bezier(.4, 0, .2, 1);
-    }
-
-    .reveal.in {
-      opacity: 1;
-      transform: none;
-    }
-
-    .d1 { transition-delay: .08s; }
-    .d2 { transition-delay: .16s; }
-    .d3 { transition-delay: .24s; }
-    .d4 { transition-delay: .32s; }
-
-    /* Navigation underline */
-    .nl {
-      position: relative;
-    }
-
-    .nl::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1.5px;
-      background: currentColor;
-      transition: width .22s cubic-bezier(.4, 0, .2, 1);
-    }
-
-    .nl:hover::after,
-    .nl.on::after {
-      width: 100%;
-    }
-
-    .nl.on {
-      font-weight: 500;
-    }
-
-    /* Shimmer button */
-    .shimmer {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .shimmer::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 60%;
-      height: 100%;
-      background: rgba(255, 255, 255, .18);
-      transform: skewX(-20deg);
-      transition: left .4s cubic-bezier(.4, 0, .2, 1);
-      pointer-events: none;
-    }
-
-    .shimmer:hover::after {
-      left: 160%;
-    }
-
-    /* Photo frames */
-    .pf {
-      overflow: hidden;
-      background: #d4d4d8;
-    }
-
-    .pf img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Card hover */
-    .card-h {
-      transition:
-        transform .28s cubic-bezier(.4, 0, .2, 1),
-        border-color .18s;
-    }
-
-    .card-h:hover {
-      transform: translateY(-4px);
-    }
-
-    /* Skill tags */
-    .stag {
-      transition: border-color .18s;
-    }
-
     [x-cloak] {
       display: none !important;
     }
 
-    /* Accessibility: respect reduced-motion preferences */
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
+    #page-content {
+      min-height: 70vh;
+    }
 
+    #page-content.is-loading {
+      opacity: 0.55;
+      transition: opacity 0.15s ease;
+    }
+
+    .navigation-link {
+      transition: color 0.2s ease;
+    }
+
+    .navigation-link.active {
+      color: #FF6B2B !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
         scroll-behavior: auto !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
-
 </head>
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
 
-  <!-- NAVIGATION -->
+  <!-- =====================================================
+       PERSISTENT HEADER AND NAVIGATION
+  ====================================================== -->
 
   <header
     class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-    :class="sc ? 'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5' : ''"
-  >
-    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
+    :class="sc
+      ? 'bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md shadow-sm shadow-black/5'
+      : 'bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm'">
 
-  <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10" aria-label="Jules Nizeyimana home">
-    <span class="text-zinc-900 dark:text-white">Ju</span><span class="text-accent">les</span>
-  </a>
+    <nav
+      class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
+      aria-label="Main navigation">
 
-  <ul class="hidden md:flex items-center gap-6 lg:gap-8 text-sm" role="list">
-    <li>
-      <a href="#about" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s === 'about' ? 'on !text-zinc-900 dark:!text-white' : ''">About</a>
-    </li>
-    <li>
-      <a href="#education" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s === 'education' ? 'on !text-zinc-900 dark:!text-white' : ''">Education</a>
-    </li>
-    <li>
-      <a href="#work" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s === 'work' ? 'on !text-zinc-900 dark:!text-white' : ''">Projects</a>
-    </li>
-    <li>
-      <a href="#services" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s === 'services' ? 'on !text-zinc-900 dark:!text-white' : ''">Expertise</a>
-    </li>
-    <li>
-      <a href="#blog" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s === 'blog' ? 'on !text-zinc-900 dark:!text-white' : ''">Blog</a>
-    </li>
-    <li>
-      <a href="#contact" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s === 'contact' ? 'on !text-zinc-900 dark:!text-white' : ''">Contact</a>
-    </li>
-  </ul>
+      <!-- Logo -->
+      <a
+        href="index.html"
+        @click.prevent="navigate('index.html')"
+        class="font-display font-bold text-xl tracking-tight relative z-10"
+        aria-label="Jules Nizeyimana home">
 
-  <div class="flex items-center gap-3">
+        <span class="text-zinc-900 dark:text-white">Ju</span><span class="text-accent">les</span>
+      </a>
 
-    <!-- Dark mode toggle -->
-    <button
-      type="button"
-      @click="dark = !dark"
-      class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
-      :aria-label="dark ? 'Switch to light mode' : 'Switch to dark mode'"
-    >
-      <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-      </svg>
-      <svg x-show="dark" x-cloak class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-      </svg>
-    </button>
+      <!-- Desktop navigation -->
+      <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
 
-    <!-- Hire me -->
-    <a href="#contact" class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
-      Get in touch
-      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-      </svg>
-    </a>
+        <li>
+          <a href="index.html"
+             @click.prevent="navigate('index.html')"
+             class="navigation-link text-zinc-500 dark:text-zinc-400 hover:text-accent"
+             :class="{ 'active': s === 'home' }"
+             :aria-current="s === 'home' ? 'page' : null">
+            Home
+          </a>
+        </li>
 
-    <!-- Mobile menu toggle -->
-    <button
-      type="button"
-      @click="mm = !mm"
-      class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
-      :aria-expanded="mm.toString()"
-      aria-controls="mobile-menu"
-      :aria-label="mm ? 'Close navigation menu' : 'Open navigation menu'"
-      @keydown.escape.window="mm = false"
-    >
-      <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-      <svg x-show="mm" x-cloak class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-      </svg>
-    </button>
-  </div>
-</nav>
+        <li>
+          <a href="about.html"
+             @click.prevent="navigate('about.html')"
+             class="navigation-link text-zinc-500 dark:text-zinc-400 hover:text-accent"
+             :class="{ 'active': s === 'about' }"
+             :aria-current="s === 'about' ? 'page' : null">
+            About
+          </a>
+        </li>
 
-<!-- Mobile menu -->
-<div
-  id="mobile-menu"
-  x-show="mm"
-  x-cloak
-  @keydown.escape.window="mm = false"
-  x-transition:enter="transition ease-out duration-200"
-  x-transition:enter-start="opacity-0 -translate-y-2"
-  x-transition:enter-end="opacity-100 translate-y-0"
-  x-transition:leave="transition ease-in duration-150"
-  x-transition:leave-start="opacity-100 translate-y-0"
-  x-transition:leave-end="opacity-0 -translate-y-2"
-  class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900"
->
-  <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
-    <li><a href="#about" @click="mm = false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
-    <li><a href="#education" @click="mm = false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Education</a></li>
-    <li><a href="#work" @click="mm = false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Projects</a></li>
-    <li><a href="#services" @click="mm = false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Expertise</a></li>
-    <li><a href="#blog" @click="mm = false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Blog</a></li>
-    <li><a href="#contact" @click="mm = false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a></li>
-    <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
-      <a href="#contact" @click="mm = false" class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Get in touch →</a>
-    </li>
-  </ul>
-</div>
+        <li>
+          <a href="projects.html"
+             @click.prevent="navigate('projects.html')"
+             class="navigation-link text-zinc-500 dark:text-zinc-400 hover:text-accent"
+             :class="{ 'active': s === 'projects' }"
+             :aria-current="s === 'projects' ? 'page' : null">
+            Projects
+          </a>
+        </li>
+
+        <li>
+          <a href="expertise.html"
+             @click.prevent="navigate('expertise.html')"
+             class="navigation-link text-zinc-500 dark:text-zinc-400 hover:text-accent"
+             :class="{ 'active': s === 'expertise' }"
+             :aria-current="s === 'expertise' ? 'page' : null">
+            Area of Expertise
+          </a>
+        </li>
+
+        <li>
+          <a href="education.html"
+             @click.prevent="navigate('education.html')"
+             class="navigation-link text-zinc-500 dark:text-zinc-400 hover:text-accent"
+             :class="{ 'active': s === 'education' }"
+             :aria-current="s === 'education' ? 'page' : null">
+            Education
+          </a>
+        </li>
+
+        <li>
+          <a href="blog.html"
+             @click.prevent="navigate('blog.html')"
+             class="navigation-link text-zinc-500 dark:text-zinc-400 hover:text-accent"
+             :class="{ 'active': s === 'blog' }"
+             :aria-current="s === 'blog' ? 'page' : null">
+            Blog
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html"
+             @click.prevent="navigate('contact.html')"
+             class="navigation-link text-zinc-500 dark:text-zinc-400 hover:text-accent"
+             :class="{ 'active': s === 'contact' }"
+             :aria-current="s === 'contact' ? 'page' : null">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- Controls -->
+      <div class="flex items-center gap-3">
+
+        <!-- Dark mode -->
+        <button
+          type="button"
+          @click="dark = !dark"
+          class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
+          :aria-label="dark ? 'Switch to light mode' : 'Switch to dark mode'">
+
+          <!-- Moon -->
+          <svg x-show="!dark"
+               class="w-4 h-4"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor"
+               aria-hidden="true">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+
+          <!-- Sun -->
+          <svg x-show="dark"
+               class="w-4 h-4"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor"
+               aria-hidden="true">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+        </button>
+
+        <!-- Hire me -->
+        <a
+          href="contact.html"
+          @click.prevent="navigate('contact.html')"
+          class="hidden md:inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
+
+          Hire me
+
+          <svg class="w-3.5 h-3.5"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor"
+               aria-hidden="true">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+
+        <!-- Mobile menu button -->
+        <button
+          type="button"
+          @click="mm = !mm"
+          class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
+          :aria-expanded="mm"
+          aria-controls="mobile-navigation"
+          aria-label="Toggle navigation menu">
+
+          <svg x-show="!mm"
+               class="w-4 h-4"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor"
+               aria-hidden="true">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+
+          <svg x-show="mm"
+               class="w-4 h-4"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor"
+               aria-hidden="true">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+
+      </div>
+    </nav>
+
+    <!-- Mobile navigation -->
+    <div
+      id="mobile-navigation"
+      x-show="mm"
+      x-cloak
+      x-transition
+      class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+
+      <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
+
+        <li>
+          <a href="index.html"
+             @click.prevent="navigate('index.html')"
+             class="block hover:text-accent"
+             :class="s === 'home' ? 'text-accent' : 'text-zinc-700 dark:text-zinc-300'">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html"
+             @click.prevent="navigate('about.html')"
+             class="block hover:text-accent"
+             :class="s === 'about' ? 'text-accent' : 'text-zinc-700 dark:text-zinc-300'">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="project.html"
+             @click.prevent="navigate('project.html')"
+             class="block hover:text-accent"
+             :class="s === 'projects' ? 'text-accent' : 'text-zinc-700 dark:text-zinc-300'">
+            Projects
+          </a>
+        </li>
+
+        <li>
+          <a href="expertise.html"
+             @click.prevent="navigate('expertise.html')"
+             class="block hover:text-accent"
+             :class="s === 'expertise' ? 'text-accent' : 'text-zinc-700 dark:text-zinc-300'">
+            Area of Expertise
+          </a>
+        </li>
+
+        <li>
+          <a href="education.html"
+             @click.prevent="navigate('education.html')"
+             class="block hover:text-accent"
+             :class="s === 'education' ? 'text-accent' : 'text-zinc-700 dark:text-zinc-300'">
+            Education
+          </a>
+        </li>
+
+        <li>
+          <a href="blog.html"
+             @click.prevent="navigate('blog.html')"
+             class="block hover:text-accent"
+             :class="s === 'blog' ? 'text-accent' : 'text-zinc-700 dark:text-zinc-300'">
+            Blog
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html"
+             @click.prevent="navigate('contact.html')"
+             class="block hover:text-accent"
+             :class="s === 'contact' ? 'text-accent' : 'text-zinc-700 dark:text-zinc-300'">
+            Contact
+          </a>
+        </li>
+
+        <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
+          <a href="contact.html"
+             @click.prevent="navigate('contact.html')"
+             class="inline-flex bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">
+            Hire me →
+          </a>
+        </li>
+
+      </ul>
+    </div>
   </header>
 
-  <main>
 
-<!-- HERO -->
-<section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
-  <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-  <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <!-- =====================================================
+       DYNAMIC PAGE CONTENT
 
-  <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+       Navigation loads the <main> contents from the selected
+       HTML file into this container.
+  ====================================================== -->
 
-      <div>
-        <p class="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4">Digital Inclusion &amp; Community Development</p>
+  <main id="page-content" x-ref="content" class="min-h-screen">
 
-        <h1 class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
-          Hi, I'm <span class="text-accent">Jules</span>
-        </h1>
+    <!-- Home page content -->
+    <section id="hero"
+             class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
 
-        <p class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10">
-          Digital skills and community development practitioner, Managing Director at RGT, Vice Chair &amp; COO at ISOC Rwanda, and experienced technical trainer. I coordinate training programmes, deliver mentorship, and advance digital inclusion, community connectivity, and responsible Internet use.
-        </p>
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="reveal d3 flex flex-wrap gap-4">
-          <a href="#work" class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
-            Explore My Work
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </a>
-          <a href="#contact" class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">
-            Get in touch
-          </a>
-        </div>
+      <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="reveal d4 flex flex-wrap gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
+      <div class="relative z-10 max-w-6xl mx-auto px-6 py-16 w-full">
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+
+          <!-- Introduction -->
           <div>
-            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">14+</p>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Projects supported</p>
-          </div>
-          <div>
-            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">41,000+</p>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">People reached</p>
-          </div>
-          <div>
-            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">9+</p>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Years of experience</p>
-          </div>
-        </div>
-      </div>
 
-      <div class="reveal d2 flex justify-center md:justify-end">
-        <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-          <div class="pf w-full h-full rounded-3xl">
-            <img src="images/passport.jpg" alt="Portrait of Jules Nizeyimana" loading="eager">
-          </div>
-          <div class="absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">
-            Open to collaborations
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXPERTISE -->
-<section id="services" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="mb-14">
-      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Areas of Expertise</p>
-      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">My Areas of Expertise</h2>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Technical Infrastructure &amp; Networking</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-          Computer network design and deployment, community networks, server administration, and systems administration.
-        </p>
-      </article>
-
-      <article class="reveal d2 card-h group bg-zinc-900 dark:bg-zinc-800 rounded-2xl p-8 border border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-zinc-800 dark:bg-zinc-700 rounded-xl mb-6 group-hover:bg-accent/20 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-xl text-white mb-3">Capacity Building &amp; Technical Training</h3>
-        <p class="text-sm text-zinc-400 leading-relaxed">
-          Training programme design, technical skills development, mentorship, facilitation, and workshop delivery.
-        </p>
-      </article>
-
-      <article class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Leadership, Governance &amp; Project Management</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-          Project coordination, organisational governance, stakeholder engagement, Internet governance, and programme management.
-        </p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="work" class="py-24">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
-      <div>
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Projects</p>
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Projects &amp; Impact</h2>
-      </div>
-
-      <a href="projects.html" class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">
-        All projects →
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-
-      <!-- PROJECT 1 -->
-      <article class="card-h reveal d1 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-48 sm:h-52">
-          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&amp;q=80" alt="Technology and digital skills training" loading="lazy">
-        </div>
-
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Technical Training</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Internet Users</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Engineers</span>
-          </div>
-
-          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Expert Trainer – Internet Society</h3>
-
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
-            Since 2017, I have trained more than 1,500 Internet users and engineers through Learning @ Internet Society. Training areas include network operations, computer network design, community networks, Online Trust &amp; Safety, encryption, privacy, digital footprints, and Internet governance.
-          </p>
-
-          <a href="case-study.html" class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
-            View case study →
-          </a>
-        </div>
-      </article>
-
-      <!-- PROJECT 2 -->
-      <article class="card-h reveal d2 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-48 sm:h-52">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&amp;q=80" alt="Digital literacy and access to online tools" loading="lazy">
-        </div>
-
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Digital Skills</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Refugees</span>
-          </div>
-
-          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Digital Literacy Training for Refugees</h3>
-
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
-            Designed and delivered digital literacy training for 163 refugees in Mahama Refugee Camp. The programme focused on mobile digital skills, smartphone and Internet use, entrepreneurship, parenting, and improving quality of life.
-          </p>
-
-          <a href="case-study.html" class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
-            View case study →
-          </a>
-        </div>
-      </article>
-
-      <!-- PROJECT 3 -->
-      <article class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-48 sm:h-52">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&amp;q=80" alt="Digital inclusion and community technology" loading="lazy">
-        </div>
-
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Digital Inclusion</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Entrepreneurship</span>
-          </div>
-
-          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Community Networks &amp; Wi-Fi Entrepreneurship</h3>
-
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
-            Contributed to a project designed to bridge the digital divide in a refugee community. Participants received training to establish and maintain satellite Internet connections while supporting community development and local economic opportunities.
-          </p>
-
-          <a href="case-study.html" class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
-            View case study →
-          </a>
-        </div>
-      </article>
-
-      <!-- PROJECT 4 -->
-      <article class="card-h reveal d1 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-48 sm:h-52">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&amp;q=80" alt="Technology supporting community Internet access" loading="lazy">
-        </div>
-
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Digital Inclusion</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Connectivity</span>
-          </div>
-
-          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Kibungo Internet Access Centre</h3>
-
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
-            Contributed to the establishment of an Internet Access Centre serving a rural community. The initiative aimed to expand access to educational and communication opportunities and connect community members with online resources.
-          </p>
-
-          <a href="case-study.html" class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
-            View case study →
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-      <div class="reveal order-2 md:order-1">
-        <div class="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
-          <img src="images/passport.jpg" alt="Jules Nizeyimana" loading="lazy">
-        </div>
-      </div>
-
-      <div class="order-1 md:order-2">
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About me</p>
-
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">
-          A bit about<br>who I am
-        </h2>
-
-        <p class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-          I'm Jules Nizeyimana, a digital skills and community development practitioner with a background in Information and Communication Technology.
-        </p>
-
-        <p class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
-          My work focuses on digital literacy, online safety, Internet governance, and community-centred connectivity. I deliver training, workshops, and engagement initiatives that promote digital inclusion, empower youth and women, support marginalized communities, and advance responsible Internet use.
-        </p>
-
-        <div class="reveal d4">
-          <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">Skills &amp; Areas of Expertise</p>
-
-          <div class="flex flex-wrap gap-2" role="list" aria-label="Skills and areas of expertise">
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Community Networks</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Technical Training</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Digital Inclusion</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Online Safety</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Internet Governance</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Computer Networking</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Server &amp; Systems Administration</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Digital Solutions</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ACADEMIC BACKGROUND -->
-<section id="education" class="py-24">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="mb-14">
-      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Education &amp; Qualifications</p>
-      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Academic Background</h2>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <article class="reveal d1 flex flex-col bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
-        <p class="text-xs font-medium text-accent tracking-widest uppercase mb-5">2026–2027</p>
-        <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-3">BTech in Information Technology</h3>
-        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">
-          Undergraduate studies in Information Technology and related computing disciplines.
-        </p>
-        <footer class="mt-auto pt-5 border-t border-zinc-200 dark:border-zinc-700">
-          <p class="font-medium text-sm text-zinc-900 dark:text-white">Saint Joseph Integrated Technical College</p>
-          <p class="text-xs text-zinc-500 mt-1">SJITC</p>
-        </footer>
-      </article>
-
-      <article class="reveal d2 flex flex-col bg-zinc-900 dark:bg-zinc-800 rounded-2xl p-7 border border-zinc-800">
-        <p class="text-xs font-medium text-accent tracking-widest uppercase mb-5">2013–2016</p>
-        <h3 class="text-xl font-bold text-white mb-3">Advanced Diploma in ICT</h3>
-        <p class="text-zinc-400 text-sm leading-relaxed mb-6">
-          Studies in Information and Communication Technology, computing, information systems, and technical applications.
-        </p>
-        <footer class="mt-auto pt-5 border-t border-zinc-700">
-          <p class="font-medium text-sm text-white">IPRC Kigali</p>
-          <p class="text-xs text-zinc-500 mt-1">Integrated Polytechnic Regional College Kigali</p>
-        </footer>
-      </article>
-
-      <article class="reveal d3 flex flex-col bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
-        <p class="text-xs font-medium text-accent tracking-widest uppercase mb-5">2009–2012</p>
-        <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-3">Advanced Level Certificate</h3>
-        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">
-          Secondary education specialising in Mathematics, Physics, and Computer Science (MPC).
-        </p>
-        <footer class="mt-auto pt-5 border-t border-zinc-200 dark:border-zinc-700">
-          <p class="font-medium text-sm text-zinc-900 dark:text-white">Nyagatare Secondary School</p>
-          <p class="text-xs text-zinc-500 mt-1">Nyagatare SS</p>
-        </footer>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section id="blog" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
-      <div>
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Insights</p>
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Thoughts &amp; Perspectives</h2>
-      </div>
-      <a href="blog.html" class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">All articles →</a>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-44">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&amp;q=80" alt="Computer screen displaying programming code" loading="lazy">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Digital Inclusion</span>
-          </div>
-          <a href="blog-article.html">
-            <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Advancing Digital Inclusion Through Community Connectivity</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-            Reflections on how accessible connectivity and practical digital skills can expand opportunities for underserved communities.
-          </p>
-          <a href="blog-article.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">Read more →</a>
-        </div>
-      </article>
-
-      <article class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-44">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=700&amp;q=80" alt="Planning and collaboration workspace" loading="lazy">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Capacity Building</span>
-          </div>
-          <a href="blog-article.html">
-            <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Designing Effective Digital Skills Training</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-            Key considerations for planning practical, accessible training that responds to learners' needs and real-world challenges.
-          </p>
-          <a href="blog-article.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">Read more →</a>
-        </div>
-      </article>
-
-      <article class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-44">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&amp;q=80" alt="Laptop and technology workspace" loading="lazy">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Online Safety</span>
-          </div>
-          <a href="blog-article.html">
-            <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Promoting Online Trust and Safety</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-            Why privacy awareness, fraud prevention, and responsible Internet use matter for safer digital participation.
-          </p>
-          <a href="blog-article.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">Read more →</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!--CONTAC SECTION-->
-<!--The contact details and form goes here -->
-
-<section id="contact" class="py-24">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="bg-zinc-900 dark:bg-zinc-800 rounded-3xl p-10 md:p-16 relative overflow-hidden">
-
-      <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-      <div class="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
-
-      <div class="relative z-10 grid md:grid-cols-2 gap-12 items-start">
-
-        <div>
-          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Get in touch</p>
-          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-5">Let's work<br>together</h2>
-          <p class="reveal d2 text-zinc-400 leading-relaxed mb-8">
-            I'm open to digital inclusion, technical training, community connectivity, and community development initiatives.
-          </p>
-
-          <div class="reveal d3 flex flex-col gap-4">
-
-            <a href="https://www.linkedin.com/in/jules-nizeyimana-6533a712a/" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
-              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </span>
-              <span class="text-sm">LinkedIn Profile</span>
-            </a>
-
-            <a href="https://x.com/Julesni57" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
-              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.634 7.584H.478l8.6-9.83L0 1.153h7.594l5.243 6.932zm-1.291 19.49h2.039L6.486 3.246H4.298z"/>
-                </svg>
-              </span>
-              <span class="text-sm">X Profile</span>
-            </a>
-
-          </div>
-        </div>
-
-        <div class="reveal d2">
-          <!-- Configure a real form endpoint before publishing -->
-          <form action="#" method="POST">
-            <div class="flex flex-col gap-4">
-
-              <div class="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="fname" class="block text-xs font-medium text-zinc-400 mb-1.5">Name <span aria-hidden="true">*</span></label>
-                  <input
-                    type="text"
-                    id="fname"
-                    name="name"
-                    placeholder="Jane Smith"
-                    required
-                    autocomplete="name"
-                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors"
-                  >
-                </div>
-
-                <div>
-                  <label for="femail" class="block text-xs font-medium text-zinc-400 mb-1.5">Email <span aria-hidden="true">*</span></label>
-                  <input
-                    type="email"
-                    id="femail"
-                    name="email"
-                    placeholder="jane@company.com"
-                    required
-                    autocomplete="email"
-                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors"
-                  >
-                </div>
-              </div>
-
-              <div>
-                <label for="fsubject" class="block text-xs font-medium text-zinc-400 mb-1.5">Subject</label>
-                <input
-                  type="text"
-                  id="fsubject"
-                  name="subject"
-                  placeholder="Project inquiry"
-                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors"
-                >
-              </div>
-
-              <div>
-                <label for="fmessage" class="block text-xs font-medium text-zinc-400 mb-1.5">Message <span aria-hidden="true">*</span></label>
-                <textarea
-                  id="fmessage"
-                  name="message"
-                  rows="4"
-                  placeholder="Tell me about your project..."
-                  required
-                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors resize-none"
-                ></textarea>
-              </div>
-
-              <button type="submit" class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
-                Send message →
-              </button>
+            <p class="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4">
+              Digital Skills &amp; Community Development
+            </p>
+
+            <h1 class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
+              Hi, I'm <span class="text-accent">Jules</span>
+            </h1>
+
+            <p class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10">
+              Managing Director | RGT · Vice Chair &amp; COO | ISOC Rwanda · Expert Trainer.
+              I work across digital skills, connectivity, online safety, Internet governance, training, and community development.
+            </p>
+
+            <div class="reveal d3 flex flex-wrap gap-4">
+
+              <a href="project.html"
+                 @click.prevent="navigate('project.html')"
+                 class="inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
+                View my Contributions →
+              </a>
+
+              <a href="contact.html"
+                 @click.prevent="navigate('contact.html')"
+                 class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">
+                Get in touch
+              </a>
 
             </div>
-          </form>
-        </div>
 
+            <div class="reveal d4 flex flex-wrap gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
+
+              <div>
+                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">14+</p>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Projects involved</p>
+              </div>
+
+              <div>
+                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">41,000+</p>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Beneficiaries</p>
+              </div>
+
+              <div>
+                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">9y</p>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Experience</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Profile image -->
+          <div class="reveal d2 flex justify-center md:justify-end">
+
+            <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+
+              <div class="pf w-full h-full rounded-3xl overflow-hidden">
+                <img
+                  src="images/passport.jpg"
+                  alt="Jules Nizeyimana"
+                  class="w-full h-full object-cover"
+                  loading="eager">
+              </div>
+
+              <div class="absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">
+                Open to projects
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
+    </section>
+
+
+    <!-- Dynamic loading error -->
+    <div
+      x-show="error"
+      x-cloak
+      role="alert"
+      class="max-w-6xl mx-auto px-6 py-6 text-red-600 dark:text-red-400">
+      <p x-text="error"></p>
+      <button type="button"
+              @click="error = ''"
+              class="mt-2 underline">
+        Dismiss
+      </button>
     </div>
-  </div>
-</section>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       PERSISTENT FOOTER
+  ====================================================== -->
 
   <footer class="border-t border-zinc-100 dark:border-zinc-900">
+
     <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-zinc-400">
-        © <span id="yr"></span> Jules Nizeyimana. All rights reserved.<br>
+
+      <p class="text-sm text-zinc-400 text-center sm:text-left">
+        © <span id="yr"></span> Jules. All rights reserved.
+        <br>
         Developed by
-        <a href="https://lbegey78.gumroad.com/" rel="noopener noreferrer" target="_blank" class="font-bold hover:text-accent transition-colors">Jules Nizeyimana</a>
-        • Template attribution:
-        <a href="https://themewagon.com/" rel="noopener noreferrer" target="_blank" class="font-bold hover:text-accent transition-colors">ThemeWagon</a>
+        <a href="https://lbegey78.gumroad.com/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="font-bold hover:text-accent">
+          Jules Nizeyimana
+        </a>
+        · Distributed by
+        <a href="https://themewagon.com/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="font-bold hover:text-accent">
+          ThemeWagon
+        </a>
       </p>
 
-  <p class="text-xs text-zinc-500">
-    Built with
-    <a href="https://tailwindcss.com/" rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">Tailwind CSS</a>
-    &amp;
-    <a href="https://alpinejs.dev/" rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">Alpine.js</a>
-  </p>
-</div>
+      <p class="text-xs text-zinc-500">
+        Built with
+        <a href="https://tailwindcss.com/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="hover:text-accent transition-colors">
+          Tailwind CSS
+        </a>
+        &amp;
+        <a href="https://alpinejs.dev/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="hover:text-accent transition-colors">
+          Alpine.js
+        </a>
+      </p>
 
+    </div>
   </footer>
 
-  <script>
-    function app() {
-      return {
-        dark: false,
-        mm: false,
-        sc: false,
-        s: 'hero',
-        observer: null,
 
-        init() {
-          // Restore the saved theme or use the system preference.
-          try {
-            const savedTheme = localStorage.getItem('theme');
-
-            this.dark = savedTheme
-              ? savedTheme === 'dark'
-              : window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            this.$watch('dark', value => {
-              try {
-                localStorage.setItem('theme', value ? 'dark' : 'light');
-              } catch (error) {
-                // The theme still works for the current page if storage is unavailable.
-              }
-            });
-          } catch (error) {
-            this.dark = false;
-          }
-
-          // Scroll state and active section.
-          const handleScroll = () => {
-            this.sc = window.scrollY > 20;
-            this.updateSection();
-          };
-
-          window.addEventListener('scroll', handleScroll, { passive: true });
-          window.addEventListener('resize', handleScroll, { passive: true });
-
-          handleScroll();
-
-          // Reveal animations with a graceful fallback.
-          if ('IntersectionObserver' in window) {
-            this.observer = new IntersectionObserver(entries => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('in');
-                  this.observer.unobserve(entry.target);
-                }
-              });
-            }, {
-              threshold: 0.1,
-              rootMargin: '0px 0px -40px 0px'
-            });
-
-            document.querySelectorAll('.reveal').forEach(element => {
-              this.observer.observe(element);
-            });
-          } else {
-            document.querySelectorAll('.reveal').forEach(element => {
-              element.classList.add('in');
-            });
-          }
-
-          // Footer year.
-          const yearElement = document.getElementById('yr');
-          if (yearElement) {
-            yearElement.textContent = new Date().getFullYear();
-          }
-
-          // Close the mobile menu when Escape is pressed.
-          window.addEventListener('keydown', event => {
-            if (event.key === 'Escape') {
-              this.mm = false;
-            }
-          });
-        },
-
-        updateSection() {
-          const atBottom =
-            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
-
-          if (atBottom) {
-            this.s = 'contact';
-            return;
-          }
-
-          const ids = [
-            'contact',
-            'blog',
-            'education',
-            'about',
-            'work',
-            'services',
-            'hero'
-          ];
-
-          for (const id of ids) {
-            const element = document.getElementById(id);
-
-            if (element && window.scrollY >= element.offsetTop - 150) {
-              this.s = id;
-              return;
-            }
-          }
-
-          this.s = 'hero';
-        }
-      };
-    }
-  </script>
+  <!-- App JavaScript: load after the page markup -->
+  <script src="js/app.js"></script>
 
 </body>
 </html>

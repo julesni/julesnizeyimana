@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jules Nizeyimana — digital skills and community development practitioner working in ICT, connectivity, online safety, and Internet governance.">
+<meta name="keywords" content="Jules Nizeyimana, ICT, digital literacy, community networks, online safety, Internet governance, training, Rwanda">
+<meta name="author" content="Jules Nizeyimana">
+<meta property="og:title" content="Jules Nizeyimana | Professional Portfolio">
+<meta property="og:description" content="Digital skills, community development, connectivity, online safety, and Internet governance.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://julesni.github.io/">
+<title>Jules Nizeyimana | Professional Portfolio</title>
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: { display: ['PT Sans', 'sans-serif'], body: ['DM Sans', 'sans-serif'] },
+        colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
+      }
+    }
+  };
+</script>
+</head>
+
+<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+
+<!-- ═══ NAV ═══ -->
+<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
+
+    <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
+      <span class="text-zinc-900 dark:text-white">Ju</span><span class="text-accent">les</span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
+      <li><a href="#about"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
+      <li><a href="#work"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Projects</a></li>
+      <li><a href="#services" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Area of Expertise</a></li>
+      
+      
+       <!-- 
+      <li><a href="#reviews" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='reviews'?'on !text-zinc-900 dark:!text-white':''">Reviews</a></li>
+      -->
+      <li><a href="#blog"    class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='blog'?'on !text-zinc-900 dark:!text-white':''">Blog</a></li>
+   
+      <li><a href="#contact" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <!-- dark toggle -->
+      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
+        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg x-show="dark"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+      </button>
+      <!-- hire me -->
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
+        Hire me <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <!-- hamburger -->
+      <button @click="mm=!mm" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800" :aria-expanded="mm" aria-label="Toggle menu">
+        <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="mm"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- mobile menu -->
+  <div x-show="mm" x-cloak
+    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
+    class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+    <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
+      <li><a href="#services" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Services</a></li>
+      <li><a href="#work"     @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Work</a></li>
+      <li><a href="#about"   @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
+      <li><a href="#reviews" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Reviews</a></li>
+      <li><a href="#blog"    @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Blog</a></li>
+      <li><a href="#contact" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a></li>
+      <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
+        <a href="#contact" @click="mm=false" class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="work" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Section heading -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+      <div>
+        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
+          Projects
+        </p>
+
+        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
+          Projects &amp; Impact
+        </h2>
+      </div>
+
+      <a href="projects.html"
+         class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">
+        All projects →
+      </a>
+    </div>
+
+    <!-- Consistent project grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+
+      <!-- PROJECT 1: INTERNET SOCIETY TRAINER -->
+      <article class="card-h reveal d1 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+
+        <div class="pf w-full h-48 sm:h-52">
+          <img
+            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80"
+            alt="Technology and digital skills training"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">
+              Technical Training
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              Internet Users
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              Engineers
+            </span>
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">
+            Expert Trainer – Internet Society
+          </h3>
+
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
+            Since 2017, trained more than 1,500 Internet users and engineers
+            through Learning @ Internet Society. Training areas include
+            NetOps, computer network design, community networks, Online Trust
+            &amp; Safety, encryption, privacy, digital footprint and Internet
+            governance.
+          </p>
+
+          <a href="case-study.html"
+             class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+            View case study →
+          </a>
+        </div>
+      </article>
+
+      <!-- PROJECT 2: DIGITAL LITERACY FOR REFUGEES -->
+      <article class="card-h reveal d2 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+
+        <div class="pf w-full h-48 sm:h-52">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+            alt="Digital literacy and access to online tools"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">
+              Digital Skills
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              Refugees
+            </span>
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">
+            Digital Literacy Training for Refugees
+          </h3>
+
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
+            Designed and delivered digital literacy training for 163 refugees
+            in Mahama Refugee Camp. The programme focused on mobile digital
+            skills, smartphone and Internet use, entrepreneurship, parenting
+            and improving quality of life.
+          </p>
+
+          <a href="case-study.html"
+             class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+            View case study →
+          </a>
+        </div>
+      </article>
+
+      <!-- PROJECT 3: COMMUNITY NETWORKS -->
+      <article class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+
+        <div class="pf w-full h-48 sm:h-52">
+          <img
+            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
+            alt="Digital inclusion and community technology"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">
+              Digital Inclusion
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              Entrepreneurship
+            </span>
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">
+            Community Network &amp; WiFi Entrepreneurship
+          </h3>
+
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
+            Developed and implemented a project designed to bridge the digital
+            divide in a refugee community. Participants were trained to
+            establish and maintain satellite Internet connections while
+            supporting community development and local economic opportunities.
+          </p>
+
+          <a href="case-study.html"
+             class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+            View case study →
+          </a>
+        </div>
+      </article>
+
+      <!-- PROJECT 4: KIBUNGO INTERNET ACCESS CENTRE -->
+      <article class="card-h reveal d1 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+
+        <div class="pf w-full h-48 sm:h-52">
+          <img
+            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80"
+            alt="Technology supporting community Internet access"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">
+              Digital Inclusion
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              Connectivity
+            </span>
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">
+            Kibungo Internet Access Centre
+          </h3>
+
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
+            Coordinated the establishment of an Internet Access Centre serving
+            a rural community. The initiative helped bridge the digital divide,
+            expand access to educational and communication opportunities, and
+            connect community members with online resources.
+          </p>
+
+          <a href="case-study.html"
+             class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+            View case study →
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
